@@ -2,6 +2,10 @@
   --square: 15px;
   --square-gap: 5px;
   --week-width: 20px;
+  --flex-bg-color: #da8a72;
+  --grid-box-color: #71bb65;
+  --grid-box-hover: #71bb65;
+  --border: 1px #e1e4e8 solid;
 }
 
 /* explicitly define grid areas */
@@ -10,17 +14,16 @@
 .squares { grid-area: squares; }
 
 .grid {
-  /* inline vs grid */
   display: inline-grid;
   grid-template-areas:
     '. month'
     'days squares';
-  grid-template-columns: auto 1fr;
   grid-gap: 10px;
+  /* grid-template-columns: auto 1fr; */
 
   /* other styles */
   padding: 20px;
-  border: 1px #e1e4e8 solid;
+  border: var(--border);
   margin: 20px;
 }
 
@@ -35,11 +38,8 @@
   display: grid;
   grid-gap: var(--square-gap);
   grid-template-rows: repeat(7, var(--square));
-}
-
-.squares {
   grid-auto-flow: column;
-  grid-auto-columns: var(--square);
+  /* grid-auto-columns: var(--square); */
 }
 
 .squares div:hover {
@@ -54,8 +54,6 @@
 .flex {
   display: flex;
   /* flex-direction: row; */
-  /* align-content: normal; */
-  /* justify-content: normal; */
 
   /* other styling */
   padding: 20px;
@@ -63,7 +61,7 @@
   width: 500px;
   height: 500px;
   padding: 20px;
-  border: 1px #e1e4e8 solid;
+  border: var(--border);
   margin: 20px;
 }
 
@@ -73,7 +71,7 @@
   align-items: center;
   height: 50px;
   width: 50px;
-  background-color: #da8a72;
+  background-color: var(--flex-bg-color);
   margin: 10px;
   color: white;
 }
