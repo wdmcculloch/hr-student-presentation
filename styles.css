@@ -1,0 +1,85 @@
+:root {
+  --square: 15px;
+  --square-gap: 5px;
+  --week-width: 20px;
+}
+
+/* explicitly define grid areas */
+.month { grid-area: month; }
+.days { grid-area: days; }
+.squares { grid-area: squares; }
+
+.grid {
+  /* inline vs grid */
+  display: inline-grid;
+  grid-template-areas:
+    '. month'
+    'days squares';
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+
+  /* other styles */
+  padding: 20px;
+  border: 1px #e1e4e8 solid;
+  margin: 20px;
+}
+
+/* month not exact - every month doesn't span one four weeks */
+.month {
+  display: grid;
+  grid-template-columns: repeat(12, calc(var(--week-width) * 4));
+}
+
+.days,
+.squares {
+  display: grid;
+  grid-gap: var(--square-gap);
+  grid-template-rows: repeat(7, var(--square));
+}
+
+.squares {
+  grid-auto-flow: column;
+  grid-auto-columns: var(--square);
+}
+
+.squares div:hover {
+  background-color: #71bb65;
+
+}
+.squares div {
+  background-color: #ade2a5;
+}
+
+/* FLEX */
+.flex {
+  display: flex;
+  /* flex-direction: row; */
+  /* align-content: normal; */
+  /* justify-content: normal; */
+
+  /* other styling */
+  padding: 20px;
+  margin: 20px;
+  width: 500px;
+  height: 500px;
+  padding: 20px;
+  border: 1px #e1e4e8 solid;
+  margin: 20px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: #da8a72;
+  margin: 10px;
+  color: white;
+}
+
+
+body {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+}
